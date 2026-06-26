@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shaik Adnan | Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #0b0c10;
+            --surface-color: #1f2833;
+            --primary-accent: #66fcf1;
+            --secondary-accent: #45a29e;
+            --text-main: #c5c6c7;
+            --text-light: #ffffff;
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-family);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Typography & Layout */
+        h1, h2, h3, h4 {
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        a {
+            color: var(--primary-accent);
+            text-decoration: none;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--text-light);
+            text-shadow: 0 0 8px var(--primary-accent);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid rgba(69, 162, 158, 0.2);
+        }
+
+        /* Header / Hero Section */
+        header {
+            padding: 100px 0 50px;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(31,40,51,1) 0%, rgba(11,12,16,1) 100%);
+            border-bottom: 2px solid var(--primary-accent);
+            box-shadow: 0 4px 15px rgba(102, 252, 241, 0.1);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(102, 252, 241, 0.5);
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            color: var(--secondary-accent);
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-info span {
+            background: var(--surface-color);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(102, 252, 241, 0.3);
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            border-left: 4px solid var(--primary-accent);
+            padding-left: 15px;
+        }
+
+        /* Summary */
+        .summary-text {
+            font-size: 1.1rem;
+            background: var(--surface-color);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 2px solid var(--secondary-accent);
+        }
+
+        /* Grid Layouts for Experience & Projects */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--surface-color);
+            padding: 25px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 3px;
+            background: var(--primary-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .date {
+            color: var(--secondary-accent);
+            font-size: 0.9rem;
+        }
+
+        .card h3 {
+            color: var(--primary-accent);
+            margin-bottom: 5px;
+        }
+
+        .card p {
+            flex-grow: 1; /* Pushes links to the bottom */
+        }
+
+        .project-links {
+            margin-top: 15px;
+            display: flex;
+            gap: 15px;
+        }
+        
+        .project-links a {
+            font-size: 0.9rem;
+            border: 1px solid var(--primary-accent);
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        .project-links a:hover {
+            background: var(--primary-accent);
+            color: var(--bg-color);
+        }
+
+        /* Lists */
+        ul {
+            list-style-position: inside;
+            margin-left: 10px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* Skills Layout */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category h3 {
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tags span {
+            background: rgba(102, 252, 241, 0.1);
+            color: var(--primary-accent);
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(102, 252, 241, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(69, 162, 158, 0.2);
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero h2 { font-size: 1.2rem; }
+            .section-title { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="container">
+            <h1>Shaik Adnan</h1>
+            <h2>Software Engineer | Android Developer</h2>
+            <div class="contact-info">
+                <span>📍 Hyderabad, Telangana, India</span>
+                <span>📧 <a href="mailto:shaikshamshuddin072@gmail.com">shaikshamshuddin072@gmail.com</a></span>
+                <span>📱 +91 9948589751</span>
+                <!-- Replace the hrefs below with your actual profile links -->
+                <span>🔗 <a href="https://www.linkedin.com/in/shaikadnan5884" target="_blank" rel="noopener noreferrer">LinkedIn</a></span>
+                <span>💻 <a href="https://github.com/Shaikadnan5884" target="_blank" rel="noopener noreferrer">GitHub</a></span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section id="summary">
+            <h2 class="section-title">Summary</h2>
+            <p class="summary-text">
+                Detail-oriented Software Engineer and Android Developer with a strong foundation in building scalable applications and intelligent systems. Proficient in Java, Python, and Web Technologies. Proven ability to design intuitive user interfaces and implement robust database schemas to enhance user engagement.
+            </p>
+        </section>
+
+        <section id="experience">
+            <h2 class="section-title">Experience</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Android Development Intern</h3>
+                        <span class="date">06/2026 - Present</span>
+                    </div>
+                    <h4>Aenexz Tech</h4>
+                    <p style="margin-top: 10px;">Assisting in the architecture and development of scalable Android applications utilizing Java and XML within Android Studio to enhance overall performance.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Internship Student</h3>
+                        <span class="date">04/2026 - 05/2026</span>
+                    </div>
+                    <h4>Oasis Info byte</h4>
+                    <p style="margin-top: 10px;">Created intuitive Android applications and designed robust database schemas with optimized data access layers to significantly improve user engagement and retrieval times.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Training Intern</h3>
+                        <span class="date">05/2024 - 10/2024</span>
+                    </div>
+                    <h4>Indus Tech Solutions</h4>
+                    <p style="margin-top: 10px;">Developed functional prototypes for diverse Android applications utilizing various APIs to effectively demonstrate core functionalities.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Bhainsa Market | Android App</h3>
+                    <p>Engineered a comprehensive local marketplace ecosystem featuring intuitive hierarchical categories, mastering state management, and building custom UI components within Android Studio.</p>
+                    <div class="project-links"><a href="https://github.com/Shaikadnan5884/bhainsa-market" target="_blank">Code</a></div>
+                </div>
+
+                <div class="card">
+                    <h3>Internet Data Usage Tracker | Android App</h3>
+                    <p>Built an Android utility providing real-time data analytics on a daily, weekly, and monthly basis while optimizing background services for minimal battery consumption.</p>
+                    <div class="project-links"><a href="https://datausage.netlify.app/" target="_blank">Demo</a></div>
+                </div>
+
+                <div class="card">
+                    <h3>Personal Portfolio | Web Application</h3>
+                    <p>Designed a responsive, interactive professional brand presence to seamlessly showcase technical expertise and project galleries across mobile, tablet, and desktop devices.</p>
+                    <div class="project-links"><a href="https://shaikadnan5884-portfolio.netlify.app/" target="_blank">Demo</a></div>
+                </div>
+
+                <div class="card">
+                    <h3>Polygon Triangulation Visualization | Web Application</h3>
+                    <p>Developed an interactive tool to visualize computational geometry algorithms and understand the Concept of Matrix Chain Multiplication.</p>
+                    <div class="project-links"><a href="https://polygontrainglevisualization.netlify.app/" target="_blank">Demo</a></div>
+                </div>
+
+                <div class="card">
+                    <h3>Hierarchical Directory Structure | Web Application</h3>
+                    <p>Created a web-based simulation of OS directory structure concepts (One, Two, and Three-level) applied to an E-commerce context.</p>
+                    <div class="project-links"><a href="https://os-webapp-treelevelds.netlify.app/" target="_blank">Demo</a></div>
+                </div>
+                
+                <div class="card">
+                    <h3>Medimate AI | Web Application</h3>
+                    <p>Developed an AI-powered consultant designed to provide immediate responses to medical inquiries through a natural language interface.</p>
+                    <div class="project-links"><a href="https://github.com/Shaikadnan5884/medimate-ai" target="_blank">Code</a></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2 class="section-title">Skills & Strengths</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Development</h3>
+                    <div class="skill-tags">
+                        <span>Android Development</span>
+                        <span>App Prototyping</span>
+                        <span>Chatbots Development</span>
+                        <span>UI/UX Design (XML)</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Technical</h3>
+                    <div class="skill-tags">
+                        <span>Java</span>
+                        <span>Python</span>
+                        <span>C</span>
+                        <span>HTML/CSS/JS</span>
+                        <span>MySQL</span>
+                        <span>SQLite</span>
+                        <span>Machine Learning</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Strengths</h3>
+                    <div class="skill-tags">
+                        <span>Problem Solving</span>
+                        <span>Team Collaboration</span>
+                        <span>Scalable Thinking</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2 class="section-title">Education & Certificates</h2>
+            <div class="grid-2">
+                <div>
+                    <div class="card" style="margin-bottom: 20px;">
+                        <div class="card-header">
+                            <h3>B-tech, AI & ML</h3>
+                            <span class="date">Expected June 2028</span>
+                        </div>
+                        <h4>Geethanjali College of Eng.</h4>
+                    </div>
+                    <div class="card" style="margin-bottom: 20px;">
+                        <div class="card-header">
+                            <h3>High School Diploma</h3>
+                            <span class="date">April 2025</span>
+                        </div>
+                        <h4>SGM Govt Polytechnic</h4>
+                        <p>GPA: 8.9/10</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>SSC</h3>
+                            <span class="date">May 2022</span>
+                        </div>
+                        <h4>TMRS Boys 1</h4>
+                        <p>GPA: 9.0/10</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="card" style="margin-bottom: 20px;">
+                        <h3>Certificates</h3>
+                        <ul style="margin-top: 10px; color: var(--text-main);">
+                            <li>Indus Tech Training</li>
+                            <li>IBM Workshop</li>
+                            <li>AICTC IOT</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Languages</h3>
+                        <ul style="margin-top: 10px; color: var(--text-main);">
+                            <li>Hindi (C1)</li>
+                            <li>Urdu (C1)</li>
+                            <li>English (B2)</li>
+                            <li>Telugu (B1)</li>
+                            <li>Arabic (A2)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Shaik Adnan. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
