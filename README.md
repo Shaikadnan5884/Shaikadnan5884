@@ -66,7 +66,7 @@ An intelligent data analysis tool for processing and visualizing daily data. Per
 ---
 
 ## 🌐 Connect With Me
-- 💼 [LinkedIn - Shaikadnan5884](https://www.linkedin.com/in/shaikadnan5884)
+- 💼 LinkedIn:  [Shaikadnan5884](https://www.linkedin.com/in/shaikadnan5884)
 - 📧 Email: [Get in touch!](mailto:shaikshamshuddin072@gmail.com)
 - 🌍 Personal Website: [portfolio](https://shaikadnan5884-portfolio.netlify.app/)
 - 💻 GitHub: [@Shaikadnan5884](https://github.com/Shaikadnan5884)
